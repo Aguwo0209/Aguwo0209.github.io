@@ -1,20 +1,12 @@
 @media (max-width: 1600px) {
   .content-row p {
     font-size: 14px;
-  }
-  .text-area {
-  font-size: 12px;
-  }
-  }
+}}
 
 @media (min-width: 1600px) {
   .content-row p {
     font-size: 18px;
-  }
-  .text-area {
-    font-size: 16px;
-  }
-  }
+}}
 body {
       overflow: hidden; /* 禁止滾動 */
       margin: 0;
@@ -89,6 +81,7 @@ body {
             width: 100%;
             height: 5vh;
             padding: 1vh;
+            font-size: 0.8vw;
             margin-top: 1vh;
             color: #493C2C;
             text-align: center;
@@ -141,7 +134,7 @@ body {
             display: flex;
             flex-direction: column;
             position: relative;
-            height: 80vh; /* 整個時間軸高度，可調整 */
+            height: 80vh;
             justify-content: space-between;
         }
         .year {
@@ -197,7 +190,6 @@ body {
       flex-direction: column;
       height: 80vh;
     }
-    /* 文字內容區 */
     .content {
       flex: 0 0 auto;
       display: flex;
