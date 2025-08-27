@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>數位校史-導覽機</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="left-banner">
+    <a href="#" id="logo-btn" style="text-decoration:none;" data-page="page00">
+        <img src="image/logo.png" alt="光復國小 Logo" class="logo">
+    </a>  
+    
+    <div class="button-container">
+      <a href="#" class="button" data-page="page01">舊校區</a>
+      <a href="#" class="button" data-page="page02">簡易教室</a>
+      <a href="#" class="button" data-page="page03">重建期</a>
+      <a href="#" class="button" data-page="page04">新校區</a>
+    </div>
+  <div class="text-area">臺中市立光復國中小<br>tel:04-2339-3141</div>
+</div>
+ <!-- 首頁標題 -->
+ <div class="title-text">臺中市立光復中小學<br>校史導覽</div>
+ <div class="title2-text">Taichung Municipal Kuang-Fu<br>Junior high and Elementary School</div>
+
+<div class="main-content">
+  <h1 id="page-title"></h1>
+  <div class="timeline" id="timeline"></div>
+  <div class="col-2">
+    <div class="content" id="content-text">
+      <div class="content-row">
+        <p class="date"></p>
+        <p class="word"></p>
+      </div>
+    </div>
+    <div class="image-gallery2" id="content-images2"></div>
+  </div>
+  <div class="image-gallery" id="content-images"></div>
+</div>
+
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">✕</span>
+  <img id="lightbox-img" src="" alt="大圖">
+</div>
+
+<audio id="bgm" autoplay loop muted>
+  <source src="music/bgm.mp3" type="audio/mpeg">
+</audio>
+<audio id="click-sound">
+  <source src="music/click.mp3" type="audio/mpeg">
+</audio>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
