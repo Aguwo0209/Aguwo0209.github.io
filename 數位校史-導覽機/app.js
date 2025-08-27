@@ -17,9 +17,7 @@ const dateBox = document.getElementById("content-date");
 const wordBox = document.getElementById("content-word");
 
 
-// BGM 解鎖標誌
 let bgmUnlocked = false;
-
 // 播放點擊音效
 function playClick() {
   clickSound.currentTime = 0;
@@ -27,7 +25,6 @@ function playClick() {
     console.log("點擊音效被阻擋，需要互動解鎖")
   );
 }
-
 // 解鎖 BGM
 function unlockBGM() {
   if (!bgmUnlocked) {
@@ -72,7 +69,7 @@ function generateTimeline(pageKey) {
   years.forEach((year) => {
     const yearDiv = document.createElement("div");
     yearDiv.className = "year";
-    yearDiv.dataset.year = year; // 給每個 yearDiv 一個 data-year
+    yearDiv.dataset.year = year;
 
     const btn = document.createElement("button");
     btn.textContent = year;
@@ -80,8 +77,8 @@ function generateTimeline(pageKey) {
     btn.style.color = "#493C2C";
     btn.onclick = () => {
       playClick();
-      loadContent(pageKey, year, true); // 點擊切換內容
-      highlightYearCircle(year);        // 點擊時切換 active 顏色
+      loadContent(pageKey, year, true);
+      highlightYearCircle(year);
     };
 
     const circle = document.createElement("span");
@@ -96,16 +93,14 @@ function generateTimeline(pageKey) {
 
   updateTimelineLines();
 
-  // 🔹 預設讓第一個年份圈圈高亮
+  // 預設讓第一個年份高亮
   if (years.length > 0) {
     highlightYearCircle(years[0]);
   }
 }
 
-// 🔹 切換 active 圈圈
 function highlightYearCircle(yearKey) {
   document.querySelectorAll(".year .circle").forEach(c => {
-    // 重置顏色
     c.style.backgroundColor = "#fff";
     c.style.borderColor = c.style.getPropertyValue("--line-color");
   });
@@ -136,12 +131,12 @@ function updateTimelineLines() {
   });
 }
 
-// 用 class 觸發淡入動畫
+// 淡入動畫
 function fadeReplace(el, html) {
-  el.classList.remove("fade-in");   // 移除原本動畫
+  el.classList.remove("fade-in");
   el.innerHTML = html;
-  void el.offsetWidth;               // 重新渲染
-  el.classList.add("fade-in");       // 套動畫 class
+  void el.offsetWidth;
+  el.classList.add("fade-in"); 
 }
 
 // 載入內容
@@ -168,7 +163,6 @@ function loadContent(pageKey, yearKey) {
 
     pageTitle.textContent = page.title;
 
- // 🔹 左右分欄顯示日期與內容
  const rowsHtml = item.text.map(p => {
   if (p.date) {
     return `<div class="content-row">
@@ -184,7 +178,6 @@ function loadContent(pageKey, yearKey) {
 fadeReplace(textBox, rowsHtml);
 
 
-    // 右上圖片區
     const imagesHtml = item.images.map(img => `
       <figure onclick="playClick(); openLightbox('${img.src}')">
         <img src="${img.src}" alt="${year}照片">
@@ -193,7 +186,6 @@ fadeReplace(textBox, rowsHtml);
     `).join("");
     fadeReplace(imageBox, imagesHtml);
 
-    // 右下圖片區
     const images2Html = item.images2 ? item.images2.map(img => `
       <figure onclick="playClick(); openLightbox('${img.src}')">
         <img src="${img.src}" alt="${year}照片2">
@@ -222,7 +214,6 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeLightbox();
 });
 
-// 左側按鈕 onclick
 leftButtons.forEach((btn) => {
   btn.onclick = (e) => {
     e.preventDefault();
@@ -231,12 +222,10 @@ leftButtons.forEach((btn) => {
   };
 });
 
-// Logo onclick
 logoBtn.onclick = (e) => {
   e.preventDefault();
   playClick();
   loadContent("page00");
 };
 
-// 初始載入首頁
 loadContent("page00");

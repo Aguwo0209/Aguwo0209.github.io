@@ -1,14 +1,31 @@
-        body {
-            overflow: hidden; /* 禁止滾動 */
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-image: linear-gradient(rgb(255, 255, 255,0.6), rgba(255,255,255,0.6)), url('image/background.jpg');
-            background-position: right;
-            background-repeat: no-repeat;
-            min-height: 100vh;
-            background-attachment: fixed;
-        }   
+@media (max-width: 1600px) {
+  .content-row p {
+    font-size: 14px;
+  }
+  .text-area {
+  font-size: 12px;
+  }
+  }
+
+@media (min-width: 1600px) {
+  .content-row p {
+    font-size: 18px;
+  }
+  .text-area {
+    font-size: 16px;
+  }
+  }
+body {
+      overflow: hidden; /* 禁止滾動 */
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient(rgb(255, 255, 255,0.6), rgba(255,255,255,0.6)), url('image/background.jpg');
+      background-position: right;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      background-attachment: fixed;
+      }   
         
         .left-banner {
             width: calc(12vw - 20px);
@@ -71,16 +88,11 @@
         .text-area {
             width: 100%;
             height: 5vh;
-            background-color: transparent;
-            border: none;
             padding: 1vh;
-            font-size: 0.9vw;
             margin-top: 1vh;
             color: #493C2C;
             text-align: center;
             display: flex;
-            align-items: center;
-            justify-content: center;
             flex-direction: column;
         }
 
@@ -132,27 +144,25 @@
             height: 80vh; /* 整個時間軸高度，可調整 */
             justify-content: space-between;
         }
-    .year {
-        display: flex;
-        align-items: center;
-        position: relative;
-        margin: 0;
+        .year {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin: 0;
+        }
+
+        .year button {
+              margin-right: 15px;
+              width: 10vw;
+              height: 3vw;
+              background:none;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              font-size: 1.3vw;
+              font-weight: 500;
+              color: #493C2C;
     }
-
-    .year button {
-    margin-right: 15px;
-                width: 10vw;
-                height: 3vw;
-                background:none;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                font-size: 1.3vw;
-                font-weight: 500;
-                color: #493C2C;
-
-    }
-
     .circle {
     position: relative;
     width: 16px;
@@ -172,27 +182,24 @@
         background-color: var(--line-color, #6BE1E9);
       }
     
-    /* 所有圓圈預設不顯示線 */
     .year .circle::after {
         display: block;
     }
-    
-    /* 第一個圓圈才顯示線 */
+  
     .year:last-child .circle::after {
         display: none;
     }
-
     .col-2 {
       margin-top: 20px;
       grid-column: 2 / 3;
       grid-row: 2 / 3;
       display: flex;
       flex-direction: column;
-      height: 80vh; /* 跟 timeline 一樣高度 */
+      height: 80vh;
     }
     /* 文字內容區 */
     .content {
-      flex: 0 0 auto; /* 高度隨內容自動 */
+      flex: 0 0 auto;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -200,51 +207,35 @@
 
     .content-row {
       display: flex;
-      gap: 10px; /* 左右間距 */
-      background-color: rgba(255, 255, 255, 0.6); /* 整行底色 */
+      gap: 10px;
+      background-color: rgba(255, 255, 255, 0.6);
       padding: 10px;
       border-radius: 5px;
       align-items: center;
     }
 
-    /* 內層 p 元素背景透明 */
     .content-row p {
       background-color: transparent;
       margin: 0;
       padding: 0;
       font-weight: 600;
-      color: #333;line-height: 1.4;       /* 保持一致的行高 */
-      display: flex;          /* 讓文字也走 flex */
+      color: #333;line-height: 1.4; 
+      display: flex;
     }
-/* 螢幕寬度小於1440px時 */
-@media (max-width: 1600px) {
-  .content-row p {
-    font-size: 14px;
-}}
 
-/* 螢幕寬度在1440px以上時維持16px */
-@media (min-width: 1600px) {
-  .content-row p {
-    font-size: 18px;
-}}
-    /* 日期欄 */
     .content-row .date {
-      flex: 0 5%; /* 左側固定比例 */
-      white-space: nowrap; /* 禁止換行 */
+      flex: 0 5%; 
+      white-space: nowrap;
 
     }
 
-    /* 文字欄 */
     .content-row .word {
-      flex: 1; /* 右側填滿剩餘空間 */
-    }
-
-    /* 無日期時文字欄占滿整行 */
-    .content-row.no-date .word {
       flex: 1;
     }
 
-    /* 照片區域 */
+    .content-row.no-date .word {
+      flex: 1;
+    }
     .image-gallery {
       grid-column: 3 / 4;
       grid-row: 2 / 3;
@@ -275,7 +266,7 @@
       }
       
       .image-gallery2 {
-        flex: 1; /* 剩餘空間全給圖片 */
+        flex: 1;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         align-items: end;
@@ -323,7 +314,6 @@
     cursor: pointer;
     text-decoration: none;
   }
-/* 淡入 */
 .fade-in {
   animation: fadeIn 0.6s ease;
 }
@@ -331,35 +321,6 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
-/* 分頁上下滑動 */
-.slide-up {
-  animation: slideUp 0.6s ease;
-}
-@keyframes slideUp {
-  from {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
 .left-banner .button {
     transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  .slide-fade-in {
-    animation: slideFadeIn 0.5s ease forwards;
-  }
-  
-  @keyframes slideFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(30px); /* 從下方滑入 */
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
