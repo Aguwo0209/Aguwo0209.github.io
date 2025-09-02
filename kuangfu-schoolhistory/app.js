@@ -16,6 +16,14 @@ const title2Text = document.querySelector(".title2-text");
 const dateBox = document.getElementById("content-date");
 const wordBox = document.getElementById("content-word");
 
+// 播放點擊音效
+function playClick() {
+  clickSound.currentTime = 0;
+  clickSound.play().catch(() =>
+    console.log("點擊音效被阻擋，需要互動解鎖")
+  );
+}
+
 // 更新背景透明度
 function updateBackgroundOpacity(pageKey) {
   let opacity = pageKey === "page00" ? 0.2 : 0.6;
@@ -209,3 +217,4 @@ logoBtn.onclick = (e) => {
 };
 
 loadContent("page00");
+
