@@ -78,7 +78,12 @@ function generateTimeline(pageKey) {
     circle.className = "circle";
     circle.style.borderColor = page.color;
     circle.style.setProperty("--line-color", page.color);
-
+    circle.addEventListener("click", () => {
+      playClick();
+      loadContent(pageKey, year, true);
+      highlightYearCircle(year);
+    });
+    circle.style.cursor = "pointer";
     yearDiv.appendChild(btn);
     yearDiv.appendChild(circle);
     timelineContainer.appendChild(yearDiv);
