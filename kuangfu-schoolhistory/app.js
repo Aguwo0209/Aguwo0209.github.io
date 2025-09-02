@@ -227,3 +227,4 @@ logoBtn.onclick = (e) => {
 };
 
 loadContent("page00");
+
