@@ -23,6 +23,11 @@ function playClick() {
     console.log("點擊音效被阻擋，需要互動解鎖")
   );
 }
+//自動撥放BGM
+window.addEventListener("load", () => {
+  const bgm = document.getElementById("bgm");
+  bgm.play().catch(err => console.log("自動播放被瀏覽器阻擋", err));
+});
 
 // 更新背景透明度
 function updateBackgroundOpacity(pageKey) {
@@ -217,4 +222,3 @@ logoBtn.onclick = (e) => {
 };
 
 loadContent("page00");
-
