@@ -16,26 +16,6 @@ const title2Text = document.querySelector(".title2-text");
 const dateBox = document.getElementById("content-date");
 const wordBox = document.getElementById("content-word");
 
-
-let bgmUnlocked = false;
-// 播放點擊音效
-function playClick() {
-  clickSound.currentTime = 0;
-  clickSound.play().catch(() =>
-    console.log("點擊音效被阻擋，需要互動解鎖")
-  );
-}
-// 解鎖 BGM
-function unlockBGM() {
-  if (!bgmUnlocked) {
-    bgm.muted = false;
-    bgm.loop = true;
-    bgm.play().catch(() => console.log("BGM 被阻擋，需要互動解鎖"));
-    bgmUnlocked = true;
-  }
-}
-document.body.addEventListener("click", unlockBGM, { once: true });
-
 // 更新背景透明度
 function updateBackgroundOpacity(pageKey) {
   let opacity = pageKey === "page00" ? 0.2 : 0.6;
@@ -229,3 +209,4 @@ logoBtn.onclick = (e) => {
 };
 
 loadContent("page00");
+
